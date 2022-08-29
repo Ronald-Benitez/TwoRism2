@@ -29,10 +29,7 @@ public class MainActivity extends AppCompatActivity {
         etUserPassword = findViewById(R.id.etUserPassword);
         btnLogin = findViewById(R.id.btnLogin);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api-tworism.herokuapp.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        Retrofit retrofit = RetrofitClient.getClient();
 
         UserInterface userInterface = retrofit.create(UserInterface.class);
 
