@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -59,9 +60,15 @@ public class MainActivity extends AppCompatActivity {
                             public void onResponse(Call<UserModel> call, retrofit2.Response<UserModel> response) {
                                 UserModel userModel = response.body();
                                 try {
+
                                     if (userModel.getUserType().equals("Proveedor")) {
+                                       //Settings.Global.putString(getContentResolver(), "UserId", String.valueOf(userModel.getUserId()));
+                                        //Settings.Global.putString(getContentResolver(), "UserName", userModel.getUserName());
+                                        startActivity(new Intent(MainActivity.this, RegistrarVehiculo.class));
                                         Toast.makeText(MainActivity.this, "Login Successful " + userModel.getUserType(), Toast.LENGTH_SHORT).show();
+
                                     } else {
+                                        startActivity(new Intent(MainActivity.this, RegistrarVehiculo.class));
                                         Toast.makeText(MainActivity.this, "Login Successful " + userModel.getUserType(), Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (Exception e) {
