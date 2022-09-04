@@ -1,7 +1,7 @@
 package com.example.tworism.Retrofit;
 
 public class UserModel {
-    private int UserId;
+    private String UserId;
     private String UserName;
     private String UserEmail;
     private String UserPassword;
@@ -10,7 +10,7 @@ public class UserModel {
     private String createdAt;
     private String updatedAt;
 
-    public UserModel(int userId, String userName, String userEmail, String userPassword, String userType, Boolean userVerified, String createdAt, String udatedAt) {
+    public UserModel(String userId, String userName, String userEmail, String userPassword, String userType, Boolean userVerified, String createdAt, String udatedAt) {
         UserId = userId;
         UserName = userName;
         UserEmail = userEmail;
@@ -24,11 +24,11 @@ public class UserModel {
     public UserModel() {
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return UserId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         UserId = userId;
     }
 

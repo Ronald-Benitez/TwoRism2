@@ -20,6 +20,13 @@
             android:exported="false" />
         <activity
             android:name=".Activities.MainClientActivity"
+            android:name=".ListarVehiculos"
+            android:exported="false" />
+        <activity
+            android:name=".Provider.ProviderMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarVehiculo"
             android:exported="false" />
         <activity
             android:name=".Users.RegisterActivity"

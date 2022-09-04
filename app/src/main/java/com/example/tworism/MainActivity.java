@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.tworism.Activities.MainClientActivity;
+import com.example.tworism.Provider.ProviderMainActivity;
 import com.example.tworism.Retrofit.UserInterface;
 import com.example.tworism.Retrofit.UserModel;
 import com.example.tworism.Users.RegisterActivity;
@@ -61,8 +62,11 @@ public class MainActivity extends AppCompatActivity {
                                 UserModel userModel = response.body();
                                 try {
                                     if (userModel.getUserType().equals("Proveedor")) {
-                                        Toast.makeText(MainActivity.this, "Login Successful " + userModel.getUserType(), Toast.LENGTH_SHORT).show();
-
+                                        Toast.makeText(MainActivity.this, "Bienvenido "+userModel.getUserName(), Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(MainActivity.this, ProviderMainActivity.class);
+                                        intent.putExtra("UserName", userModel.getUserName());
+                                        intent.putExtra("UserId", userModel.getUserId());
+                                        startActivity(intent);
                                     } else {
                                         Toast.makeText(MainActivity.this, "Login Successful " + userModel.getUserType(), Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(MainActivity.this, MainClientActivity.class));
