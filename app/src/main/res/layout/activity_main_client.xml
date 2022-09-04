@@ -122,6 +122,7 @@
             app:srcCompat="@drawable/ic_baseline_home_24" />
 
         <ImageView
+            android:id="@+id/profile"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"

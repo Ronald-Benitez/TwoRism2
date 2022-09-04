@@ -70,7 +70,10 @@ public class MainActivity extends AppCompatActivity {
                                         startActivity(intent);
                                     } else {
                                         Toast.makeText(MainActivity.this, "Bienvenido "+userModel.getUserName(), Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(MainActivity.this, MainClientActivity.class));
+                                        Intent intent = new Intent(MainActivity.this, MainClientActivity.class);
+                                        intent.putExtra("UserName", userModel.getUserName());
+                                        intent.putExtra("UserId", userModel.getUserId());
+                                        startActivity(intent);
                                     }
                                 } catch (Exception e) {
                                     Toast.makeText(MainActivity.this, "Inicio de sesión fallido", Toast.LENGTH_SHORT).show();
