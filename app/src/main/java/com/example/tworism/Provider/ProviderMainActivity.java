@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.tworism.ListarVehiculos;
 import com.example.tworism.R;
 import com.example.tworism.RegistrarVehiculo;
 
 public class ProviderMainActivity extends AppCompatActivity {
-    Button btnAddVehicle;
+    Button btnAddVehicle,btnListarVehiculo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,11 +22,22 @@ public class ProviderMainActivity extends AppCompatActivity {
         String UserName = bundle.getString("UserName");
 
         btnAddVehicle = findViewById(R.id.btnAddVehicle);
+        btnListarVehiculo = findViewById(R.id.btnListarVehiculo);
 
         btnAddVehicle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProviderMainActivity.this, RegistrarVehiculo.class);
+                intent.putExtra("UserId", UserId);
+                intent.putExtra("UserName", UserName);
+                startActivity(intent);
+            }
+        });
+
+        btnListarVehiculo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProviderMainActivity.this, ListarVehiculos.class);
                 intent.putExtra("UserId", UserId);
                 intent.putExtra("UserName", UserName);
                 startActivity(intent);

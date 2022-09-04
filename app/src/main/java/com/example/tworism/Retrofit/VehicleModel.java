@@ -1,7 +1,7 @@
 package com.example.tworism.Retrofit;
 
 public class VehicleModel {
-    private int VehicleID;
+    private int VehicleId;
     private String VehicleTuition;
     private String VehicleCapacity;
     private String VehicleType;
@@ -10,7 +10,7 @@ public class VehicleModel {
     private String UserId;
 
     public VehicleModel(int Id, String VehicleT, String VehicleC, String VehicleTy, String UserId, String createdAt, String udatedAt) {
-        VehicleID = Id;
+        VehicleId = Id;
         VehicleTuition = VehicleT;
         VehicleCapacity = VehicleC;
         VehicleType = VehicleTy;
@@ -28,11 +28,11 @@ public class VehicleModel {
     }
 
     public int getVVehicleID() {
-        return VehicleID;
+        return VehicleId;
     }
 
     public void setVehicleID(int VehicleID) {
-        this.VehicleID = VehicleID;
+        this.VehicleId = VehicleID;
     }
 
     public String getVehicleTuition() {
@@ -75,8 +75,8 @@ public class VehicleModel {
         this.updatedAt = updatedAt;
     }
 
-    public int getVehicleID() {
-        return VehicleID;
+    public int getVehicleId() {
+        return VehicleId;
     }
 
     public String getUserId() {

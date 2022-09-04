@@ -16,6 +16,9 @@
         android:theme="@style/Theme.TwoRism"
         tools:targetApi="31">
         <activity
+            android:name=".ListarVehiculos"
+            android:exported="false" />
+        <activity
             android:name=".Provider.ProviderMainActivity"
             android:exported="false" />
         <activity
