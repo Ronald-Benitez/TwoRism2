@@ -25,6 +25,9 @@
             android:name=".ListarVehiculos"
             android:exported="false" />
         <activity
+            android:name=".Users.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.MainClientActivity"
             android:exported="false" />
         <activity
