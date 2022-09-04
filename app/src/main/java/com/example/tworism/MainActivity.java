@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -14,6 +13,7 @@ import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.example.tworism.Provider.ProviderMainActivity;
 import com.example.tworism.Retrofit.UserInterface;
 import com.example.tworism.Retrofit.UserModel;
 import com.example.tworism.Users.RegisterActivity;
@@ -60,15 +60,13 @@ public class MainActivity extends AppCompatActivity {
                             public void onResponse(Call<UserModel> call, retrofit2.Response<UserModel> response) {
                                 UserModel userModel = response.body();
                                 try {
-
                                     if (userModel.getUserType().equals("Proveedor")) {
-                                       //Settings.Global.putString(getContentResolver(), "UserId", String.valueOf(userModel.getUserId()));
-                                        //Settings.Global.putString(getContentResolver(), "UserName", userModel.getUserName());
-                                        startActivity(new Intent(MainActivity.this, RegistrarVehiculo.class));
-                                        Toast.makeText(MainActivity.this, "Login Successful " + userModel.getUserType(), Toast.LENGTH_SHORT).show();
-
+                                        Toast.makeText(MainActivity.this, "Bienvenido "+userModel.getUserName(), Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(MainActivity.this, ProviderMainActivity.class);
+                                        intent.putExtra("UserName", userModel.getUserName());
+                                        intent.putExtra("UserId", userModel.getUserId());
+                                        startActivity(intent);
                                     } else {
-                                        startActivity(new Intent(MainActivity.this, RegistrarVehiculo.class));
                                         Toast.makeText(MainActivity.this, "Login Successful " + userModel.getUserType(), Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (Exception e) {
