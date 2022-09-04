@@ -1,11 +1,15 @@
 package com.example.tworism;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.tworism.Adapter.VehiclesAdapter;
 import com.example.tworism.Retrofit.VehicleInterface;
 import com.example.tworism.Retrofit.VehicleModel;
 
@@ -19,8 +23,7 @@ import retrofit2.Response;
 public class ListarVehiculos extends AppCompatActivity {
 
     ArrayList<String> usuarios = new ArrayList<String>();
-    ListView listUsu;
-    ArrayAdapter adaptador;
+    RecyclerView listUsu;
     String UserId;
     String name;
 
@@ -33,29 +36,32 @@ public class ListarVehiculos extends AppCompatActivity {
         name = bundle.getString("UserName");
 
         listUsu = findViewById(R.id.listUsuarios);
-        adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_1, usuarios);
-        listUsu.setAdapter(adaptador);
+        listUsu.setHasFixedSize(true);
+        listUsu.setLayoutManager(new LinearLayoutManager(this));
 
         cargarUsuarios();
     }
 
     public void cargarUsuarios(){
         VehicleInterface api = RetrofitClient.getClient().create(VehicleInterface.class);
-        Call<List<VehicleModel>> call = api.listaUsuarios(UserId);
-        call.enqueue(new Callback<List<VehicleModel>>() {
-            @Override
-            public void onResponse(Call<List<VehicleModel>> call, Response<List<VehicleModel>> response) {
-                List<VehicleModel> lista = response.body();
-                for (VehicleModel x:lista){
-                    usuarios.add("Vehicle ID: "+String.valueOf(x.getVehicleId())+" \n  Nombre: "+ x.getVehicleType()+ "   Id: "+x.getVehicleTuition());
+        try {
+            Call<List<VehicleModel>> call = api.listaUsuarios(UserId);
+            call.enqueue(new Callback<List<VehicleModel>>() {
+                @Override
+                public void onResponse(Call<List<VehicleModel>> call, Response<List<VehicleModel>> response) {
+                    List<VehicleModel> lista = response.body();
+                    VehiclesAdapter adapter = new VehiclesAdapter(lista);
+                    listUsu.setAdapter(adapter);
                 }
-                adaptador.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onFailure(Call<List<VehicleModel>> call, Throwable t) {
+                @Override
+                public void onFailure(Call<List<VehicleModel>> call, Throwable t) {
 
-            }
-        });
+                }
+            });
+        }catch (Exception e){
+            Toast.makeText(this, "Error al cargar los vehiculos", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
     }
 }
