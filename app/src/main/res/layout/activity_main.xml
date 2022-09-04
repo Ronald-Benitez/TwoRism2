@@ -44,7 +44,7 @@
         android:ems="10"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:hint="Contraseña" />
 
     <Button

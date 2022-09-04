@@ -13,6 +13,8 @@ import com.example.tworism.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.tworism.R;
+
 public class MainClientActivity extends AppCompatActivity {
 
     //RecyclerViews
