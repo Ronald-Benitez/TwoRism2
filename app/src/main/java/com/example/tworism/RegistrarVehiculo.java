@@ -22,17 +22,20 @@ import retrofit2.Retrofit;
 
 public class RegistrarVehiculo extends AppCompatActivity {
     Button btnRegister;
-    EditText TipoV, CapacidadV, PlacaV, id, userid;
+    EditText TipoV, CapacidadV, PlacaV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_vehiculo);
+        Bundle bundle = getIntent().getExtras();
+        String UserId = bundle.getString("UserId");
+        String UserName = bundle.getString("UserName");
+        Toast.makeText(this, "UserId: " + UserId + " UserName: " + UserName, Toast.LENGTH_SHORT).show();
+
         btnRegister = findViewById(R.id.btnRegistrarVe);
         TipoV = findViewById(R.id.TVehiculo);
         CapacidadV = findViewById(R.id.CapacidadV);
         PlacaV = findViewById(R.id.NumeroPlaca);
-        id = findViewById(R.id.idV);
-        userid = findViewById(R.id.Userid);
 
         Retrofit retrofit = RetrofitClient.getClient();
         VehicleInterface vehicleInterface = retrofit.create(VehicleInterface.class);
@@ -43,11 +46,7 @@ public class RegistrarVehiculo extends AppCompatActivity {
                 String tipoVe = TipoV.getText().toString();
                 String capacidad = CapacidadV.getText().toString();
                 String placa = PlacaV.getText().toString();
-                String Id = id.getText().toString();
-                String Userid = Settings.Global.getString(getContentResolver(), "UserId");
-                //String Userid = userid.getText().toString();
-                Map<String, String> params = Map.of( "VehicleID", Id,"VehicleTuition", placa, "VehicleType", tipoVe, "VehicleCapacity", capacidad, "UserId", Userid);
-                //Map.of("VehicleTuition", placa, "VehicleType", tipoVe, "VehicleCapacity", capacidad);
+                Map<String, String> params = Map.of( "VehicleTuition", placa, "VehicleType", tipoVe, "VehicleCapacity", capacidad, "UserId", UserId);
                 Call<VehicleModel> call = vehicleInterface.registerVe(params);
                 call.enqueue(new retrofit2.Callback<VehicleModel>() {
                     @Override

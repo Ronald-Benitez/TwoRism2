@@ -3,11 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Jim Ascencio/AndroidStudioProjects/TwoRism2222/app/src/main/res/layout/activity_main.xml" value="0.35280797101449274" />
-        <entry key="..\:/Users/Jim Ascencio/AndroidStudioProjects/TwoRism2222/app/src/main/res/layout/activity_register.xml" value="0.35280797101449274" />
-        <entry key="..\:/Users/Jim Ascencio/AndroidStudioProjects/TwoRism2222/app/src/main/res/layout/activity_registrar_vehiculo.xml" value="0.35280797101449274" />
         <entry key="..\:/Users/ronal/AndroidStudioProjects/TwoRism/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/ronal/AndroidStudioProjects/TwoRism/app/src/main/res/layout/activity_provider_main.xml" value="0.209375" />
         <entry key="..\:/Users/ronal/AndroidStudioProjects/TwoRism/app/src/main/res/layout/activity_register.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/ronal/AndroidStudioProjects/TwoRism/app/src/main/res/layout/activity_registrar_vehiculo.xml" value="0.209375" />
       </map>
     </option>
   </component>
