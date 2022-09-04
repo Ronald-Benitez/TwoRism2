@@ -16,6 +16,9 @@
         android:theme="@style/Theme.TwoRism"
         tools:targetApi="31">
         <activity
+            android:name=".RegistrarVehiculo"
+            android:exported="false" />
+        <activity
             android:name=".Users.RegisterActivity"
             android:exported="false" />
         <activity
