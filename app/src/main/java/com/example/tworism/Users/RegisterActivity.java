@@ -64,23 +64,27 @@ public class RegisterActivity extends AppCompatActivity {
                     String UserPassword = etUserPassword.getText().toString();
                     String UserName = etUserName.getText().toString();
                     Map<String, String> params = Map.of("UserEmail", UserEmail, "UserPassword", UserPassword, "UserName", UserName, "UserType", UserType, "UserVerified", "0");
-                    Call<UserModel> call = userInterface.register(params);
-                    call.enqueue(new retrofit2.Callback<UserModel>() {
-                        @Override
-                        public void onResponse(Call<UserModel> call, retrofit2.Response<UserModel> response) {
-                            UserModel userModel = response.body();
-                            if(userModel.getUserEmail()!=null){
-                                Toast.makeText(RegisterActivity.this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                startActivity(intent);
+                    try {
+                        Call<UserModel> call = userInterface.register(params);
+                        call.enqueue(new retrofit2.Callback<UserModel>() {
+                            @Override
+                            public void onResponse(Call<UserModel> call, retrofit2.Response<UserModel> response) {
+                                UserModel userModel = response.body();
+                                if (userModel.getUserEmail() != null) {
+                                    Toast.makeText(RegisterActivity.this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
                             }
-                        }
 
-                        @Override
-                        public void onFailure(Call<UserModel> call, Throwable t) {
-                            Toast.makeText(RegisterActivity.this, "Error al registrar", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                            @Override
+                            public void onFailure(Call<UserModel> call, Throwable t) {
+                                Toast.makeText(RegisterActivity.this, "Error al registrar", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }catch (Exception e){
+                        Toast.makeText(RegisterActivity.this, "No se puede repetir email", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

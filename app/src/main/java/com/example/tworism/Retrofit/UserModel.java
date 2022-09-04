@@ -7,16 +7,20 @@ public class UserModel {
     private String UserPassword;
     private String UserType;
     private Boolean UserVerified;
+    private String UserCalification;
+    private String UserCalifications;
     private String createdAt;
     private String updatedAt;
 
-    public UserModel(String userId, String userName, String userEmail, String userPassword, String userType, Boolean userVerified, String createdAt, String udatedAt) {
-        UserId = userId;
-        UserName = userName;
-        UserEmail = userEmail;
-        UserPassword = userPassword;
-        UserType = userType;
-        UserVerified = userVerified;
+    public UserModel(String userId, String userName, String userEmail, String userPassword, String userType, Boolean userVerified,String UserCalification, String UserCalifications, String createdAt, String udatedAt) {
+        this.UserId = userId;
+        this.UserName = userName;
+        this.UserEmail = userEmail;
+        this.UserPassword = userPassword;
+        this.UserType = userType;
+        this.UserVerified = userVerified;
+        this.UserCalification = UserCalification;
+        this.UserCalifications = UserCalifications;
         this.createdAt = createdAt;
         this.updatedAt = udatedAt;
     }
@@ -86,5 +90,21 @@ public class UserModel {
 
     public void setUdatedAt(String udatedAt) {
         this.updatedAt = udatedAt;
+    }
+
+    public String getUserCalification() {
+        return UserCalification;
+    }
+
+    public void setUserCalification(String userCalification) {
+        UserCalification = userCalification;
+    }
+
+    public String getUserCalifications() {
+        return UserCalifications;
+    }
+
+    public void setUserCalifications(String userCalifications) {
+        UserCalifications = userCalifications;
     }
 }

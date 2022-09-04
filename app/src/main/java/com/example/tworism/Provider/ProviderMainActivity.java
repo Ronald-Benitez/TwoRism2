@@ -1,5 +1,6 @@
 package com.example.tworism.Provider;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,9 +21,19 @@ public class ProviderMainActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         String UserId = bundle.getString("UserId");
         String UserName = bundle.getString("UserName");
+        Boolean UserVerified = Boolean.parseBoolean(bundle.getString("UserVerified"));
 
         btnAddVehicle = findViewById(R.id.btnAddVehicle);
         btnListarVehiculo = findViewById(R.id.btnListarVehiculo);
+
+        if(!UserVerified){
+            AlertDialog.Builder builder = new AlertDialog.Builder(ProviderMainActivity.this);
+            builder.setMessage("Necesitas verificar tu cuenta para poder registrar datos");
+            builder.show();
+            btnAddVehicle.setEnabled(false);
+            btnListarVehiculo.setEnabled(false);
+
+        }
 
         btnAddVehicle.setOnClickListener(new View.OnClickListener() {
             @Override
