@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.example.tworism.Activities.MainClientActivity;
 import com.example.tworism.Provider.ProviderMainActivity;
 import com.example.tworism.Retrofit.UserInterface;
 import com.example.tworism.Retrofit.UserModel;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                                         startActivity(intent);
                                     } else {
                                         Toast.makeText(MainActivity.this, "Login Successful " + userModel.getUserType(), Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(MainActivity.this, MainClientActivity.class));
                                     }
                                 } catch (Exception e) {
                                     Toast.makeText(MainActivity.this, "Inicio de sesión fallido", Toast.LENGTH_SHORT).show();
