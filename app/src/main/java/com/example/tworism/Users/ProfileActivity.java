@@ -134,26 +134,16 @@ public class ProfileActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Procedure.equals("Cliente")) {
-                    Intent intent = new Intent(ProfileActivity.this, MainClientActivity.class);
-                    intent.putExtra("UserId", UserId);
-                    intent.putExtra("UserName", UserName);
-                    startActivity(intent);
-                    finish();
-                } else  {
-                    Intent intent = new Intent(ProfileActivity.this, ProviderMainActivity.class);
-                    intent.putExtra("UserId", UserId);
-                    intent.putExtra("UserName", UserName);
-                    intent.putExtra("UserVerified", UserVerified);
-                    startActivity(intent);
-                    finish();
-                }
+                back();
             }
         });
 
     }
 
     public void onBackPressed() {
+        back();
+    }
+    public void back(){
         if(Procedure.equals("Cliente")) {
             Intent intent = new Intent(ProfileActivity.this, MainClientActivity.class);
             intent.putExtra("UserId", UserId);

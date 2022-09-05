@@ -30,7 +30,6 @@ public class RegistrarVehiculo extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         String UserId = bundle.getString("UserId");
         String UserName = bundle.getString("UserName");
-        Toast.makeText(this, "UserId: " + UserId + " UserName: " + UserName, Toast.LENGTH_SHORT).show();
 
         btnRegister = findViewById(R.id.btnRegistrarVe);
         TipoV = findViewById(R.id.TVehiculo);
