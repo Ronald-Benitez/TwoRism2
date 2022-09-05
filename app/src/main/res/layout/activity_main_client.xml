@@ -13,7 +13,8 @@
         android:layout_height="200dp"
         android:background="@drawable/action_bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView6"
@@ -43,13 +44,13 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="53dp"
+            android:layout_height="51dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/logo_transparent" />
+            tools:srcCompat="@drawable/lienzo" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
@@ -75,10 +76,11 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Recientes"
+        android:textColor="@color/letter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -86,13 +88,15 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Ver Todos"
+        android:textColor="@color/letter"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recent_recycler"
@@ -119,7 +123,8 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:src="@drawable/ic_baseline_home_24"
-            app:srcCompat="@drawable/ic_baseline_home_24" />
+            app:srcCompat="@drawable/ic_baseline_home_24"
+            app:tint="@color/white" />
 
         <ImageView
             android:id="@+id/profile"
@@ -128,6 +133,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:src="@drawable/ic_baseline_person_24"
+            app:tint="@color/white"
             app:srcCompat="@drawable/ic_baseline_person_24" />
 
     </LinearLayout>
