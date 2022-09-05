@@ -8,10 +8,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tworism.Models.TravelModel;
@@ -31,6 +33,7 @@ import retrofit2.Response;
 public class OrganizarViaje extends AppCompatActivity {
     String UserId,UserName,UserVerified;
     Button btnUbicaciones,btnPublicarViaje;
+    ImageButton backbtn;
     TextView textoAdvertencia;
     EditText fechaPartida,txtTravelPrice,txtTravelTime,txtLLegada,txtOrigen,txtTravelExcludes,txtTravelIncludes;
     String SlatitudOrigen,SlongitudOrigen,SlatitudDestino,SlongitudDestino;
@@ -50,10 +53,9 @@ public class OrganizarViaje extends AppCompatActivity {
 
         TravelInterface travelInterface = RetrofitClient.getClient().create(TravelInterface.class);
 
-
+        backbtn = findViewById(R.id.imageButtonBack);
         btnUbicaciones = findViewById(R.id.btnUbicaciones);
         btnPublicarViaje = findViewById(R.id.btnPublicarViaje);
-        textoAdvertencia = findViewById(R.id.textoAdvertencia);
         VehicleSpinner = findViewById(R.id.VehicleSpinner);
         fechaPartida = findViewById(R.id.fechaPartida);
         txtTravelPrice = findViewById(R.id.txtTravelPrice);
@@ -91,6 +93,14 @@ public class OrganizarViaje extends AppCompatActivity {
 
         cargarVehiculos(); //Carga los vehiculos del usuario en el spinner
 
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrganizarViaje.this, ProviderMainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         VehicleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -208,4 +218,5 @@ call.enqueue(new Callback<TravelModel>() {
             e.printStackTrace();
         }
     }
+
 }

@@ -150,6 +150,13 @@ public class MainClientActivity extends AppCompatActivity {
 
     }
 
+    private  void setRecentDateRecycler(){
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
+        recentRecycler.setLayoutManager(layoutManager);
+
+    }
+
     public void fetchRecentData(){
         RecentsInterface api = RetrofitClient.getClient().create(RecentsInterface.class);
         api.getRecentsDataModel().enqueue(new Callback<List<RecentsDataModel>>() {
