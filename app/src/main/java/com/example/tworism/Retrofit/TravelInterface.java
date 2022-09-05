@@ -3,6 +3,8 @@ package com.example.tworism.Retrofit;
 import com.example.tworism.Models.TravelModel;
 import com.example.tworism.Models.TravelRegister;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -36,5 +38,10 @@ public interface TravelInterface {
     @POST("/api/travelRegister/")
     Call<TravelRegister> reserveTravel(@Field("TravelId") String TravelId,
                                        @Field("UserId") String UserId);
+
+    @FormUrlEncoded
+    @POST("/api/travels/filter")
+    Call<List<RecentsDataModel>> filterTravel(@Field(("filter")) String filter,
+                                              @Field(("value")) String value);
 
 }
