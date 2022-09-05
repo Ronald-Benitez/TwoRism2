@@ -41,14 +41,14 @@ public class RecentsDataAdapter extends RecyclerView.Adapter<RecentsDataAdapter.
         holder.textViewFecha.setText(recentsDataModelList.get(position).getTravelDate());
         holder.textViewPrecio.setText(recentsDataModelList.get(position).getTravelPrice());
 
-        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                
                 Intent intent = new Intent(context, DetailsActivity.class);
                 context.startActivity(intent);
             }
-        });*/
+        });
     }
 
     @Override
