@@ -16,14 +16,15 @@
         android:theme="@style/Theme.TwoRism"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.PasareraDePagos"
+            android:exported="false" />
+        <activity
             android:name=".Vehicles.UpdateVehicle"
             android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSUvFaQfYhgo3NJqyrvJ4tuWaqTBHBjy4" />
-
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -35,7 +36,6 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
-
         <activity
             android:name=".Provider.OrganizarViaje"
             android:exported="false" />
@@ -62,8 +62,7 @@
             android:exported="false" />
         <activity
             android:name=".Provider.seleccionarUbicacion"
-            android:exported="false"
-            />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
