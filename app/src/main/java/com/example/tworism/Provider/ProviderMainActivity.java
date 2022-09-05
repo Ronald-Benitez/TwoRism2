@@ -45,6 +45,7 @@ public class ProviderMainActivity extends AppCompatActivity {
                 Intent intent = new Intent(ProviderMainActivity.this, RegistrarVehiculo.class);
                 intent.putExtra("UserId", UserId);
                 intent.putExtra("UserName", UserName);
+                intent.putExtra("UserVerified", UserVerified.toString());
                 startActivity(intent);
             }
         });
@@ -55,6 +56,7 @@ public class ProviderMainActivity extends AppCompatActivity {
                 Intent intent = new Intent(ProviderMainActivity.this, ListarVehiculos.class);
                 intent.putExtra("UserId", UserId);
                 intent.putExtra("UserName", UserName);
+                intent.putExtra("UserVerified", UserVerified.toString());
                 startActivity(intent);
             }
         });

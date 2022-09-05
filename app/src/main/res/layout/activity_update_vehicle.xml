@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".Vehicles.UpdateVehicle">
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Placa" />
+
+    <EditText
+        android:id="@+id/etVehicleTuition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:inputType="textPersonName"
+        android:hint="Placa del vehiculo" />
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Tipo de vehiculo" />
+
+    <EditText
+        android:id="@+id/etVehicleType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:inputType="textPersonName"
+        android:hint="Tipo de vehiculo" />
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Capacidad" />
+
+    <EditText
+        android:id="@+id/etVehicleCapacity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:inputType="textPersonName"
+        android:hint="Capacidad del vehiculo" />
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:text="Editar" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:text="Regresar" />
+</LinearLayout>
