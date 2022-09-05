@@ -1,14 +1,22 @@
 package com.example.tworism;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.tworism.Adapter.VehiclesAdapter;
+import com.example.tworism.Provider.ProviderMainActivity;
 import com.example.tworism.Retrofit.VehicleInterface;
 import com.example.tworism.Retrofit.VehicleModel;
 
+import java.security.Provider;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +27,10 @@ import retrofit2.Response;
 public class ListarVehiculos extends AppCompatActivity {
 
     ArrayList<String> usuarios = new ArrayList<String>();
-    ListView listUsu;
-    ArrayAdapter adaptador;
+    RecyclerView listUsu;
     String UserId;
-    String name;
+    String UserName, UserVerified;
+    Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,32 +38,55 @@ public class ListarVehiculos extends AppCompatActivity {
         setContentView(R.layout.activity_listar_vehiculos);
         Bundle bundle = getIntent().getExtras();
         UserId = bundle.getString("UserId");
-        name = bundle.getString("UserName");
+        UserName = bundle.getString("UserName");
+        UserVerified = bundle.getString("UserVerified");
 
         listUsu = findViewById(R.id.listUsuarios);
-        adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_1, usuarios);
-        listUsu.setAdapter(adaptador);
+        listUsu.setHasFixedSize(true);
+        listUsu.setLayoutManager(new LinearLayoutManager(this));
+        btnBack = findViewById(R.id.btnBack);
+
+        btnBack.setOnClickListener(v -> {
+            back();
+        });
 
         cargarUsuarios();
     }
 
     public void cargarUsuarios(){
         VehicleInterface api = RetrofitClient.getClient().create(VehicleInterface.class);
-        Call<List<VehicleModel>> call = api.listaUsuarios(UserId);
-        call.enqueue(new Callback<List<VehicleModel>>() {
-            @Override
-            public void onResponse(Call<List<VehicleModel>> call, Response<List<VehicleModel>> response) {
-                List<VehicleModel> lista = response.body();
-                for (VehicleModel x:lista){
-                    usuarios.add("Vehicle ID: "+String.valueOf(x.getVehicleId())+" \n  Nombre: "+ x.getVehicleType()+ "   Id: "+x.getVehicleTuition());
+        try {
+            Call<List<VehicleModel>> call = api.listarVehiculos(UserId);
+            call.enqueue(new Callback<List<VehicleModel>>() {
+                @Override
+                public void onResponse(Call<List<VehicleModel>> call, Response<List<VehicleModel>> response) {
+                    List<VehicleModel> lista = response.body();
+                    VehiclesAdapter adapter = new VehiclesAdapter(lista,UserId,UserName,UserVerified);
+                    listUsu.setAdapter(adapter);
                 }
-                adaptador.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onFailure(Call<List<VehicleModel>> call, Throwable t) {
+                @Override
+                public void onFailure(Call<List<VehicleModel>> call, Throwable t) {
 
-            }
-        });
+                }
+            });
+        }catch (Exception e){
+            Toast.makeText(this, "Error al cargar los vehiculos", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        back();
+        finish();
+    }
+
+    public void back(){
+        Intent intent = new Intent(ListarVehiculos.this, ProviderMainActivity.class);
+        intent.putExtra("UserId", UserId);
+        intent.putExtra("UserName", UserName);
+        intent.putExtra("UserVerified", UserVerified);
+        startActivity(intent);
     }
 }

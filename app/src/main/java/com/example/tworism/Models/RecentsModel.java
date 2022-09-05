@@ -1,5 +1,5 @@
 package com.example.tworism.Models;
-
+//Model de prueba
 public class RecentsModel {
     String placeName;
     String city;
