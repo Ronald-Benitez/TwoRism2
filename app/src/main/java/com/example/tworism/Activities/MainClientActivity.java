@@ -60,7 +60,7 @@ public class MainClientActivity extends AppCompatActivity {
 
         fetchRecentData();
 
-       // setRecentDateRecycler(recentsDataModelList);
+        setRecentDateRecycler();
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +72,13 @@ public class MainClientActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+    }
+
+    private  void setRecentDateRecycler(){
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
+        recentRecycler.setLayoutManager(layoutManager);
 
     }
 
