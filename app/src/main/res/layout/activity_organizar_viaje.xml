@@ -176,56 +176,44 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="5dp"
+            android:layout_gravity="bottom|end"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnPublicarViaje"
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="#EFEEEE"
+                android:enabled="false"
+                android:text="Publicar" />
 
-        <Button
-            android:id="@+id/btnUbicaciones"
-            android:layout_width="260dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="232dp"
-            android:text="Reinicar proceso"
-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
-            app:layout_constraintVertical_bias="1.0" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView33"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Detalles Ubicaciones"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_marginHorizontal="30dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnPublicarViaje"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:text="Publicar Viaje"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.48"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline5"
-            app:layout_constraintVertical_bias="0.658" />
-
-        <TextView
-            android:id="@+id/textoAdvertencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Seleccione las ubicaciones"
-            app:layout_constraintBottom_toTopOf="@+id/btnPublicarViaje"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline5"
-            app:layout_constraintVertical_bias="0.74" />
+            <Button
+                android:id="@+id/btnUbicaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="end|bottom"
+                android:layout_weight="1"
+                android:backgroundTint="@color/principal"
+                android:drawableLeft="@drawable/ic_baseline_restore_24"
+                android:drawableTint="@color/white"
+                android:text="REINICIAR"
+                app:cornerRadius="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                tools:layout_editor_absoluteX="21dp" />
+        </LinearLayout>
 
     </LinearLayout>
 
