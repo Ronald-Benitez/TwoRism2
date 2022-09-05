@@ -1,6 +1,5 @@
 package com.example.tworism.Adapter;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +17,13 @@ import java.util.List;
 
 public class RecentsDataAdapter extends RecyclerView.Adapter<RecentsDataAdapter.viewHolder> {
 
-    Context context;
+    String UserId,UserName;
     private List<RecentsDataModel> recentsDataModelList;
 
-    public RecentsDataAdapter(List<RecentsDataModel> recentsDataModelList) {
+    public RecentsDataAdapter(List<RecentsDataModel> recentsDataModelList,String UserId,String UserName) {
         this.recentsDataModelList = recentsDataModelList;
+        this.UserId = UserId;
+        this.UserName = UserName;
     }
 
     @NonNull
@@ -46,6 +47,9 @@ public class RecentsDataAdapter extends RecyclerView.Adapter<RecentsDataAdapter.
             public void onClick(View view) {
                
                 Intent intent = new Intent(view.getContext(), DetailsActivity.class);
+                intent.putExtra("UserId",UserId);
+                intent.putExtra("UserName",UserName);
+                intent.putExtra("TravelId",String.valueOf(recentsDataModelList.get(position).getTravelId()));
                 view.getContext().startActivity(intent);
             }
         });
