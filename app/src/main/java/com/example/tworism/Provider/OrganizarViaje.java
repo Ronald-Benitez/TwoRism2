@@ -186,7 +186,7 @@ call.enqueue(new Callback<TravelModel>() {
     public void cargarVehiculos(){
         VehicleInterface api = RetrofitClient.getClient().create(VehicleInterface.class);
         try {
-            Call<List<VehicleModel>> call = api.listaUsuarios(UserId);
+            Call<List<VehicleModel>> call = api.listarVehiculos(UserId);
             call.enqueue(new Callback<List<VehicleModel>>() {
                 @Override
                 public void onResponse(Call<List<VehicleModel>> call, Response<List<VehicleModel>> response) {
