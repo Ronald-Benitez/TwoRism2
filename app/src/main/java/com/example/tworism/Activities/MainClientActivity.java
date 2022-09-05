@@ -1,26 +1,23 @@
 package com.example.tworism.Activities;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-
 import com.example.tworism.Adapter.RecentsDataAdapter;
-import android.widget.ImageView;
-
-
 import com.example.tworism.MainActivity;
-import com.example.tworism.Models.RecentsModel;
 import com.example.tworism.R;
 import com.example.tworism.Retrofit.RecentsDataModel;
 import com.example.tworism.Retrofit.RecentsInterface;
-import com.example.tworism.Retrofit.VehicleInterface;
 import com.example.tworism.RetrofitClient;
+import com.example.tworism.Users.ProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +25,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-
-import com.example.tworism.R;
-import com.example.tworism.Users.ProfileActivity;
 
 
 public class MainClientActivity extends AppCompatActivity {
@@ -45,14 +38,15 @@ public class MainClientActivity extends AppCompatActivity {
 
     RecentsDataAdapter recentsAdapter;
     ImageView profile;
+    String UserId,UserName;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_client);
-        String UserId = getIntent().getStringExtra("UserId");
-        String UserName = getIntent().getStringExtra("UserName");
+        UserId = getIntent().getStringExtra("UserId");
+        UserName = getIntent().getStringExtra("UserName");
 
         profile = findViewById(R.id.profile);
 
@@ -60,7 +54,7 @@ public class MainClientActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         layoutManager = new LinearLayoutManager(this);
         recentRecycler.setLayoutManager(layoutManager);
-        recentsDataAdapter =new RecentsDataAdapter(recentsDataModelList);
+        recentsDataAdapter =new RecentsDataAdapter(recentsDataModelList,UserId,UserName);
         recentRecycler.setAdapter(recentsDataAdapter);
 
 

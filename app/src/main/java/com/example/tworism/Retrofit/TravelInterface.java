@@ -1,11 +1,14 @@
 package com.example.tworism.Retrofit;
 
 import com.example.tworism.Models.TravelModel;
+import com.example.tworism.Models.TravelRegister;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface TravelInterface {
 
@@ -23,6 +26,15 @@ public interface TravelInterface {
                                    @Field("TravelLatitudes") String TravelLatitudes,
                                    @Field("TravelLongitudes") String TravelLongitudes,
                                    @Field("TravelTags") String TravelTags,
-                                   @Field("TravelIncludes") String TravelIncludes, String travelExcludes);
+                                   @Field("TravelIncludes") String TravelIncludes,
+                                   @Field("travelExcludes") String travelExcludes);
+
+    @GET("/api/travels/{id}")
+    Call<TravelModel> getTravel(@Path("id") String id);
+
+    @FormUrlEncoded
+    @POST("/api/travelRegister/")
+    Call<TravelRegister> reserveTravel(@Field("TravelId") String TravelId,
+                                       @Field("UserId") String UserId);
 
 }

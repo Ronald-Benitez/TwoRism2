@@ -1,5 +1,7 @@
 package com.example.tworism.Models;
 
+import com.example.tworism.Retrofit.VehicleModel;
+
 public class TravelModel {
     private String TravelId;
     private String UserId;
@@ -18,12 +20,13 @@ public class TravelModel {
     private String TravelExcludes;
     private String createdAt;
     private String updatedAt;
+    private VehicleModel vehicle;
 
     public TravelModel() {
 
     }
 
-    public TravelModel(String travelId, String userId, String vehicleId, String travelDate, String travelTime, String travelPrice, String travelCapacity, String travelRegistered, String travelOrigin, String travelDestination, String travelLatitudes, String travelLongitudes, String travelTags, String travelIncludes, String travelExcludes, String createdAt, String updatedAt) {
+    public TravelModel(String travelId, String userId, String vehicleId, String travelDate, String travelTime, String travelPrice, String travelCapacity, String travelRegistered, String travelOrigin, String travelDestination, String travelLatitudes, String travelLongitudes, String travelTags, String travelIncludes, String travelExcludes, String createdAt, String updatedAt, VehicleModel vehicle) {
         this.TravelId = travelId;
         this.UserId = userId;
         this.VehicleId = vehicleId;
@@ -41,6 +44,7 @@ public class TravelModel {
         this.TravelExcludes = travelExcludes;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.setVehicle(vehicle);
     }
 
     public String getTravelId() {
@@ -177,5 +181,13 @@ public class TravelModel {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public VehicleModel getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(VehicleModel vehicle) {
+        this.vehicle = vehicle;
     }
 }

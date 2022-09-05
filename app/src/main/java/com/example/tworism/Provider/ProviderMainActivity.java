@@ -1,20 +1,13 @@
 package com.example.tworism.Provider;
 
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-
-import com.example.tworism.Activities.MainClientActivity;
 
 import com.example.tworism.ListarVehiculos;
 import com.example.tworism.MainActivity;
@@ -87,7 +80,7 @@ public class ProviderMainActivity extends AppCompatActivity {
         btnOrganizarViaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProviderMainActivity.this, OrganizarViaje.class);
+                Intent intent = new Intent(ProviderMainActivity.this, seleccionarUbicacion.class);
                 intent.putExtra("UserId", UserId);
                 intent.putExtra("UserName", UserName);
                 intent.putExtra("UserVerified", UserVerified.toString());
