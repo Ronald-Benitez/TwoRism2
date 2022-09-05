@@ -33,7 +33,6 @@ public class ProviderMainActivity extends AppCompatActivity {
         btnOrganizarViaje = findViewById(R.id.btnOrganizarViaje);
         btnProfile = findViewById(R.id.btnProfile);
 
-
         if(!UserVerified){
             AlertDialog.Builder builder = new AlertDialog.Builder(ProviderMainActivity.this);
             builder.setMessage("Necesitas verificar tu cuenta para poder registrar datos");

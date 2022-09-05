@@ -31,7 +31,7 @@ public class seleccionarUbicacion extends FragmentActivity implements GoogleMap.
     TextView coordLatitud, coordLongitud;
     Button btnGuardarUbicacion;
     String UserId,UserName,UserVerified;
-//a
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
