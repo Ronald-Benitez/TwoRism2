@@ -23,6 +23,7 @@ public interface TravelInterface {
                                    @Field("TravelLatitudes") String TravelLatitudes,
                                    @Field("TravelLongitudes") String TravelLongitudes,
                                    @Field("TravelTags") String TravelTags,
-                                   @Field("TravelIncludes") String TravelIncludes, String travelExcludes);
+                                   @Field("TravelIncludes") String TravelIncludes,
+                                   @Field("travelExcludes") String travelExcludes);
 
 }
