@@ -3,4 +3,5 @@
     <string name="invalid_email">Correo invalido</string>
     <string name="invalid_password">Contraseña debe ser mayor a 6</string>
     <string name="invalid_name">Nombre de usuario debe ser mayor a 3</string>
+    <string name="title_activity_seleccionar_ubicacion">seleccionarUbicacion</string>
 </resources>

@@ -21,6 +21,12 @@
         android:text="Listar Vehiculos" />
 
     <Button
+        android:id="@+id/btnOrganizarViaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Organizar Viaje" />
+        
+    <Button
         android:id="@+id/btnProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
