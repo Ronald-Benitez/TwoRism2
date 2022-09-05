@@ -52,7 +52,7 @@ public class RegistrarVehiculo extends AppCompatActivity {
                     public void onResponse(Call<VehicleModel> call, retrofit2.Response<VehicleModel> response) {
                         VehicleModel vehicleModel = response.body();
                         if(vehicleModel.getVehicleTuition()!=null){
-                            Toast.makeText(RegistrarVehiculo.this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrarVehiculo.this, "Vehiculo registrado correctamente", Toast.LENGTH_SHORT).show();
 
                         }
                     }

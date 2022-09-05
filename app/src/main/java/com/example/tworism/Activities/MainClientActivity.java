@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.tworism.Adapter.RecentsDataAdapter;
 import android.widget.ImageView;
 
-import com.example.tworism.Adapter.RecentsAdapter;
+
 import com.example.tworism.MainActivity;
 import com.example.tworism.Models.RecentsModel;
 import com.example.tworism.R;
@@ -43,7 +43,7 @@ public class MainClientActivity extends AppCompatActivity {
     RecentsDataAdapter recentsDataAdapter;
     List<RecentsDataModel> recentsDataModelList = new ArrayList<>();
 
-    RecentsAdapter recentsAdapter;
+    RecentsDataAdapter recentsAdapter;
     ImageView profile;
 
 
@@ -66,7 +66,7 @@ public class MainClientActivity extends AppCompatActivity {
 
         fetchRecentData();
 
-        setRecentRecycler(recentsDataList);
+       // setRecentDateRecycler(recentsDataModelList);
 
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
