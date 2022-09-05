@@ -153,7 +153,12 @@ public class OrganizarViaje extends AppCompatActivity {
                 Log.d("TravelIncludes", viajeEnviar.getTravelIncludes());
                 Log.d("TravelExcludes", viajeEnviar.getTravelExcludes());
 
-                Call<TravelModel> call = travelInterface.createTravel(viajeEnviar.getUserId(), viajeEnviar.getVehicleId(), viajeEnviar.getTravelDate(), viajeEnviar.getTravelTime(), viajeEnviar.getTravelPrice(), viajeEnviar.getTravelCapacity(), viajeEnviar.getTravelRegistered(), viajeEnviar.getTravelOrigin(), viajeEnviar.getTravelDestination(), viajeEnviar.getTravelLatitudes(), viajeEnviar.getTravelLongitudes(), viajeEnviar.getTravelTags(), viajeEnviar.getTravelIncludes(), viajeEnviar.getTravelExcludes());
+                Call<TravelModel> call = travelInterface.createTravel(viajeEnviar.getUserId(),
+                        viajeEnviar.getVehicleId(), viajeEnviar.getTravelDate(), viajeEnviar.getTravelTime(),
+                        viajeEnviar.getTravelPrice(), viajeEnviar.getTravelCapacity(), viajeEnviar.getTravelRegistered(),
+                        viajeEnviar.getTravelOrigin(), viajeEnviar.getTravelDestination(), viajeEnviar.getTravelLatitudes(),
+                        viajeEnviar.getTravelLongitudes(), viajeEnviar.getTravelTags(), viajeEnviar.getTravelIncludes(),
+                        viajeEnviar.getTravelExcludes());
 call.enqueue(new Callback<TravelModel>() {
                     @Override
                     public void onResponse(Call<TravelModel> call, Response<TravelModel> response) {
