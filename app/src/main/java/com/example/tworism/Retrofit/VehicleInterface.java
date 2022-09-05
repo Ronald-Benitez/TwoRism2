@@ -13,7 +13,7 @@ import retrofit2.http.Path;
 
 public interface VehicleInterface {
     @GET("/api/vehicles/{UserID}")
-    public abstract Call<List<VehicleModel>> listaUsuarios(@Path("UserID") String UserID);
+    public abstract Call<List<VehicleModel>> listarVehiculos(@Path("UserID") String UserID);
 
     @POST("/api/vehicles/")
     Call<VehicleModel> registerVe(@Body Map<String, String> body);
